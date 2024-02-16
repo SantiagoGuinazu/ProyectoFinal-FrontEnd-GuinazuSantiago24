@@ -1,5 +1,5 @@
-import { Button, Grid, TextField, Typography } from '@mui/material'
 import React from 'react'
+import { Button, Grid, TextField, Typography } from '@mui/material'
 
 export const LoginPage = () => {
   return (
@@ -8,7 +8,7 @@ export const LoginPage = () => {
     direction='column' 
     alignItems='center' 
     justifyContent='center' 
-    sx={{minHeight:'90vh', backgroundColor: 'green'}}
+    sx={{minHeight:'100vh', backgroundColor: 'lightgreen'}}
     >
       <Grid item sx={{width: 450, backgroundColor: 'white', borderRadius:2, padding: 3}}>
 
