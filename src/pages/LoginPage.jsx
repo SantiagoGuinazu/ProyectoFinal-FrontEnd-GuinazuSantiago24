@@ -8,7 +8,7 @@ export const LoginPage = () => {
     direction='column' 
     alignItems='center' 
     justifyContent='center' 
-    sx={{minHeight:'100vh', backgroundColor: 'lightgreen'}}
+    sx={{minHeight:'100vh', backgroundColor: 'lightblue'}}
     >
       <Grid item sx={{width: 450, backgroundColor: 'white', borderRadius:2, padding: 3}}>
 
@@ -41,7 +41,7 @@ export const LoginPage = () => {
           </Grid>
 
           <Grid container direction='row' justifyContent='end' mt={2}>
-            <a href="/auth/register">Registrarse</a>
+            <a href="/auth/register">¿No tienes cuenta? Registrarse</a>
           </Grid>
 
         </Grid>
