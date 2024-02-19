@@ -5,8 +5,8 @@ import { RegisterPage } from "./pages/RegisterPage";
 export const EcommerceFront = () => {
     return (
         <>
-            {/*<LoginPage />*/}
-            <RegisterPage />
+            <LoginPage />
+            {/*<RegisterPage />*/}
             {/*<InicioPage />*/}
         </>
     )
