@@ -32,7 +32,17 @@ export const useAuthStore = () => {
     }
 
     const startRegister = async(email, password, name, lastName) => {
-        await registerUser(email, password, name, lastName);
+        const resp = await registerUser(email, password, name, lastName);
+        if(resp.ok) {
+            const {_id, cart_id, lastName, name, rol} = resp;
+            return dispatch(onLogin({_id, cart_id, lastName, name, rol}))
+        }
+
+        return Swal.fire({
+            title: 'Uhh ocurrio un error',
+            html: resp.msg,
+            icon: 'error',
+        });
     }
 
     const startLogout = async() => {
