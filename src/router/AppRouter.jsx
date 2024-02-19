@@ -5,6 +5,8 @@ import { InicioPage } from "../pages/InicioPage";
 import { useAuthStore } from "../hooks/useAuthStore";
 import { useEffect } from "react";
 import { LoadingComponent } from "../components/LoadingComponent";
+import { MyCartPage } from "../pages/MyCartPage";
+import { MyCompras } from "../pages/MyCompras";
 
 export const AppRouter = () => {
     const { status, startCheckingLogin } = useAuthStore();
@@ -29,7 +31,11 @@ export const AppRouter = () => {
                     )
                     :
                     (
-                        <Route path="/" element={<InicioPage />} />
+                        <>
+                            <Route path="/" element={<InicioPage />} />
+                            <Route path="/mis-compras" element={<MyCompras />} />
+                            <Route path="/mi-carrito" element={<MyCartPage />} />
+                        </>
                     )
             }
             <Route path="/*" element={<Navigate to="/" />} />

@@ -1,4 +1,16 @@
-*{
+* {
     margin: 0;
     padding: 0;
+}
+
+.navbar-brand {
+    display: inline-block;
+    line-height: inherit;
+    white-space: nowrap;
+    text-decoration: none;
+    color: #47452E;
+}
+
+.navbar-brand:hover {
+    color: #47452E90;
 }
