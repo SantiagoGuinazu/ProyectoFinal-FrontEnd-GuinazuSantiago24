@@ -2,6 +2,8 @@ import React from 'react'
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
+import { useAuthStore } from '../hooks/useAuthStore';
 
 export const LoginPage = () => {
 
@@ -16,6 +18,7 @@ export const LoginPage = () => {
   })
 
   const { values, handleChange, errors } = useFormik({initialValues, validationSchema});
+  const {startLogin} = useAuthStore();
 
   const { email, password } = values;
   
@@ -24,9 +27,8 @@ export const LoginPage = () => {
   const onSubmitForm = () => {
     const isEmpty = Object.keys(errors).lenght === 0;
     if(!isEmpty) return;
-    //llamar a Api
+    startLogin(email,password);
   }
-
 
   return (
     <Grid container 
@@ -84,7 +86,7 @@ export const LoginPage = () => {
           </Grid>
 
           <Grid container direction='row' justifyContent='end' mt={2}>
-            <a href="/auth/register">¿No tienes cuenta? Registrarse</a>
+            <Link to='/auth/register'>¿No tienes cuenta? Registrarse</Link>
           </Grid>
 
         </Grid>
