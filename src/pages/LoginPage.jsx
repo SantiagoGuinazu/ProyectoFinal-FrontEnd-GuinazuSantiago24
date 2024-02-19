@@ -18,6 +18,15 @@ export const LoginPage = () => {
   const { values, handleChange, errors } = useFormik({initialValues, validationSchema});
 
   const { email, password } = values;
+  
+  const disable = (email!='' && password!='') ? false:true;
+
+  const onSubmitForm = () => {
+    const isEmpty = Object.keys(errors).lenght === 0;
+    if(!isEmpty) return;
+    //llamar a Api
+  }
+
 
   return (
     <Grid container 
@@ -64,7 +73,14 @@ export const LoginPage = () => {
           </Grid>
 
           <Grid item mt={3} xs={12}>
-            <Button variant="outlined" fullWidth>Iniciar Sesion</Button>
+            <Button 
+            disable={disable}
+            variant="outlined" 
+            onClick={onSubmitForm} 
+            fullWidth
+            >
+              Iniciar Sesion
+            </Button>
           </Grid>
 
           <Grid container direction='row' justifyContent='end' mt={2}>
