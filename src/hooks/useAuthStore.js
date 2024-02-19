@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, registerUser } from "../api/requestApi";
+import { loginUser, registerUser, validarToken } from "../api/requestApi";
+import { onLogin, onLogout } from "../store/authSlice";
+import Swal from "sweetalert2";
 
 export const useAuthStore = () => {
 
@@ -16,7 +18,17 @@ export const useAuthStore = () => {
     } = useSelector(state => state.auth);
 
     const startLogin = async(email, password) => {
-        await loginUser(email,password);
+        const resp = await loginUser(email,password);
+        if(resp.ok) {
+            const {_id, cart_id, lastName, name, rol} = resp;
+            return dispatch(onLogin({_id, cart_id, lastName, name, rol}))
+        }
+
+        return Swal.fire({
+            title: 'Uhh ocurrio un error',
+            html: resp.msg,
+            icon: 'error',
+        });
     }
 
     const startRegister = async(email, password, name, lastName) => {
@@ -24,11 +36,18 @@ export const useAuthStore = () => {
     }
 
     const startLogout = async() => {
-        
+        dispatch(onLogout());
+        localStorage.clear();
     }
 
     const startCheckingLogin = async() => {
-        
+        const resp = await validarToken();
+
+        if(resp.ok) {
+            const {_id, cart_id, lastName, name, rol} = resp;
+            return dispatch(onLogin({_id, cart_id, lastName, name, rol}))
+        };
+        startLogout();
     }
 
 
@@ -44,5 +63,7 @@ export const useAuthStore = () => {
 
         startLogin,
         startRegister,
+        startCheckingLogin,
+        startLogout,
     };
 };
