@@ -19,7 +19,7 @@ export const LoginPage = () => {
 
   const { email, password } = values;
   
-  const disable = (email!='' && password!='') ? false:true;
+  const disabled = (email!='' && password!='') ? false:true;
 
   const onSubmitForm = () => {
     const isEmpty = Object.keys(errors).lenght === 0;
@@ -74,7 +74,7 @@ export const LoginPage = () => {
 
           <Grid item mt={3} xs={12}>
             <Button 
-            disable={disable}
+            disabled={disabled}
             variant="outlined" 
             onClick={onSubmitForm} 
             fullWidth

@@ -23,7 +23,7 @@ export const RegisterPage = () => {
 
   const { email, password, name, lastName } = values;
   
-  const disable = (email!='' && password!='' && name!='' && lastName) ? false:true;
+  const disabled = (email!='' && password!='' && name!='' && lastName) ? false:true;
 
   const onSubmitForm = () => {
     const isEmpty = Object.keys(errors).lenght === 0;
@@ -110,7 +110,7 @@ export const RegisterPage = () => {
 
           <Grid item mt={3} xs={12}>
             <Button 
-              disable={disable}
+              disabled={disabled}
               onClick={onSubmitForm} 
               variant="outlined" 
               fullWidth
