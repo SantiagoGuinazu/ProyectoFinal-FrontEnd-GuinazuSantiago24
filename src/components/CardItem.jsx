@@ -8,12 +8,12 @@ export const CardItem = ({ _id, title, description, code, price, stock, category
                 title={title}
                 subheader={`Precio: ${price}`}
             />
-            <CardMedia
+            {<CardMedia
                 component="img"
                 height="194"
                 image={thumbnail}
                 alt="Paella dish"
-            />
+            />}
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
                     {description}

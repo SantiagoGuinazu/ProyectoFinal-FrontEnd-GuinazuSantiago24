@@ -11,7 +11,6 @@ export const useProductStore = () => {
         const resp = await getProducts();
         if (resp.ok) {
             const {pagination,products} = resp;
-            console.log(products)
             dispatch(onProducts(products));
             dispatch(onPagination(pagination));
             return;
