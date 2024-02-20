@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../api/requestApi";
-import { onPagination, onProducts } from "../store/productSlice";
+import { onPagination, onProduct, onProducts } from "../store/productSlice";
 
 export const useProductStore = () => {
 
@@ -23,10 +23,15 @@ export const useProductStore = () => {
         });
     }
     
+    const startProductActivo = (producto) => {
+        dispatch(onProduct(producto))
+    }
+
     return {
         product, 
         products, 
         pagination,
         startGetProducts,
+        startProductActivo,
     };
 }

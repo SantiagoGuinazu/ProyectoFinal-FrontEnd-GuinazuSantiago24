@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { LoadingComponent } from "../components/LoadingComponent";
 import { MyCartPage } from "../pages/MyCartPage";
 import { MyCompras } from "../pages/MyCompras";
+import { ProductPage } from "../pages/ProductPage";
 
 export const AppRouter = () => {
     const { status, startCheckingLogin } = useAuthStore();
@@ -38,6 +39,8 @@ export const AppRouter = () => {
                         </>
                     )
             }
+            <Route path="/" element={<InicioPage />} />
+            <Route path="/product/*" element={<ProductPage />} />
             <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
     );
