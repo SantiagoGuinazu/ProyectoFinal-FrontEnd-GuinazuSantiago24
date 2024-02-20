@@ -18,11 +18,11 @@ export const productSlice = createSlice({
             state.pagination = payload;
         },
         onResetProduct: (state) => {
-            state.pagination = null;
             state.product = null;
             state.products = null;
+            state.pagination = null;
         }
     },
 });
 
-export const {onProduct, onProducts, onPagination,onResetProduct} = productSlice.actions;
+export const {onProduct, onProducts, onPagination, onResetProduct} = productSlice.actions;

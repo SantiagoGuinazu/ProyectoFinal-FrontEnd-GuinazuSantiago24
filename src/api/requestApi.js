@@ -45,7 +45,6 @@ export const getProducts = async (query) => {
 
         const { result } = data;
         const { payload: products, totalDocs, totalPages, limit, query, page, hasNextPage, hasPrevPage, prevPage, nextPage } = result;
-
         return { ok: true, products, pagination: { totalDocs, totalPages, limit, query, page, hasNextPage, hasPrevPage, prevPage, nextPage } };
     } catch (error) {
         console.log(error);
