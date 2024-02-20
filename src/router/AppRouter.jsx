@@ -8,9 +8,10 @@ import { LoadingComponent } from "../components/LoadingComponent";
 import { MyCartPage } from "../pages/MyCartPage";
 import { MyCompras } from "../pages/MyCompras";
 import { ProductPage } from "../pages/ProductPage";
+import { AdminProductPage } from "../pages/AdminProductPage";
 
 export const AppRouter = () => {
-    const { status, startCheckingLogin } = useAuthStore();
+    const { status, startCheckingLogin, isAdmin } = useAuthStore();
 
     useEffect(() => {
         startCheckingLogin();
@@ -33,9 +34,11 @@ export const AppRouter = () => {
                     :
                     (
                         <>
-                            <Route path="/" element={<InicioPage />} />
                             <Route path="/mis-compras" element={<MyCompras />} />
                             <Route path="/mi-carrito" element={<MyCartPage />} />
+                            {
+                                isAdmin && <Route path="/admin-product" element={<AdminProductPage />} />
+                            }
                         </>
                     )
             }

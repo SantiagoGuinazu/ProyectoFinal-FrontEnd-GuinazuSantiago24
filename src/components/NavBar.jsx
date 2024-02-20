@@ -23,8 +23,9 @@ export const NavBar = () => {
                     {
                         isAdmin &&
                         <NavLink
+                            to='/admin-product'
                             className='navbar-brand'
-                            style={{ marginLeft: '15px' }}>Agregar Producto</NavLink>
+                            style={{ marginLeft: '15px' }}>Configuracion de Productos</NavLink>
                     }
                 </div>
             </div>
