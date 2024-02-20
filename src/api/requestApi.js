@@ -38,3 +38,17 @@ export const validarToken = async () => {
         return { ok: false };
     }
 };
+
+export const getProducts = async (query) => {
+    try {
+        const { data } = await ecommerceApi.get('/products');
+
+        const { result } = data;
+        const { payload: products, totalDocs, totalPages, limit, query, page, hasNextPage, hasPrevPage, prevPage, nextPage } = result;
+
+        return { ok: true, products, pagination: { totalDocs, totalPages, limit, query, page, hasNextPage, hasPrevPage, prevPage, nextPage } };
+    } catch (error) {
+        console.log(error);
+        return { ok: false };
+    }
+}
