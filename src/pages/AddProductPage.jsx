@@ -2,6 +2,7 @@ import { Button, Grid, TextField, Typography } from "@mui/material";
 import { NavBar } from "../components/NavBar";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useProductStore } from "../hooks/useProductStore";
 
 export const AddProductPage = () => {
     const initialValues = {
@@ -11,7 +12,7 @@ export const AddProductPage = () => {
         price: '',
         stock: '',
         category: '',
-        file: null,
+        file: '',
     };
 
     const validationSchema = Yup.object({
@@ -21,30 +22,27 @@ export const AddProductPage = () => {
         price: Yup.number().required("El precio es obligatorio"),
         stock: Yup.number().required("El stock es obligatorio"),
         category: Yup.string().required("La categoria es obligatoria"),
-        //file: Yup.mixed().required("El archivo es obligatorio"),
     });
 
-    const { values, handleChange, errors, setValues } = useFormik({
-        initialValues,
-        validationSchema,
-    });
+    const { values, handleChange, errors, setValues } = useFormik({initialValues, validationSchema});
+    const { startCreateProduct} = useProductStore()
 
     const { title, description, code, price, stock, category, file } = values;
 
-    const disabled = (title != '' && description != '' && code != '' && price != '' && stock != '' && category != '' && file != null) ? false : true;
+    const disabled = (title != '' && description != '' && code != '' && price != '' && stock != '' && category != '' && file != '') ? false : true;
 
     const onSubmitForm = () => {
         const isEmpty = Object.keys(errors).lenght === 0;
         if (!isEmpty) return;
+        startCreateProduct({title, description, code, price, stock, category, file})
+
     }
 
     const onFileChange = ({target}) =>{
-        //console.log(target.files)
         if(target.file===0) return;
-
         setValues({
             ...values,
-            file:target.files[0],
+            file: target.files[0],
         })
     }
 
@@ -159,27 +157,15 @@ export const AddProductPage = () => {
                             />
                         </Grid>
 
-                        {/*<Grid item mt={1} xs={12}>
+                        <Grid item mt={1} xs={12}>
                             <TextField
                                 name="file"
                                 type="file"
-                                value={file}
                                 label="Imagen"
                                 variant="outlined"
                                 size="small"
                                 fullWidth
-                                onChange={handleChange}
-                                error={Boolean(errors.file)}
-                                helperText={errors.file}
-                            />
-                        </Grid>*/}
-
-                        <Grid item mt={1} xs={12}>
-                            <input 
-                                name="file"
-                                type="file"
                                 onChange={onFileChange}
-                                //onChange={handleChange}
                             />
                         </Grid>
 

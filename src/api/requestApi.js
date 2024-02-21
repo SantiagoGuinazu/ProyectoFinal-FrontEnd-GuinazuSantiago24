@@ -51,3 +51,13 @@ export const getProducts = async (query) => {
         return { ok: false };
     }
 }
+
+export const createProduct = async (producto) => {
+    try {
+        const { data } = await ecommerceApi.post('/products', { ...producto });
+        return { ok: true, producto:data.producto };
+    } catch (error) {
+        console.log(error);
+        return { ok: false,  msg: error.response.data.errors[0].msg };
+    }
+}
