@@ -54,7 +54,17 @@ export const getProducts = async (query) => {
 
 export const createProduct = async (producto) => {
     try {
-        const { data } = await ecommerceApi.post('/products', { ...producto });
+
+        const form = new FormData();
+        form.append('title', producto.title);
+        form.append('description', producto.description);
+        form.append('code', producto.code);
+        form.append('price', producto.price);
+        form.append('stock', producto.stock);
+        form.append('category', producto.category);
+        form.append('file', producto.file);
+
+        const { data } = await ecommerceApi.post('/products', form);
         return { ok: true, producto:data.producto };
     } catch (error) {
         console.log(error);

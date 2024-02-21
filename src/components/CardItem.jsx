@@ -23,7 +23,7 @@ export const CardItem = ({ _id, title, description, code, price, stock, category
                     component="img"
                     height="194"
                     image={thumbnail}
-                    alt="Paella dish"
+                    alt={title}
                 />
                 <CardContent>
                     <Typography variant="body2" color="text.secondary">

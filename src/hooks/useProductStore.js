@@ -29,10 +29,16 @@ export const useProductStore = () => {
 
     const startCreateProduct = async(producto) => {
         const resp = await createProduct(producto);
+
         if(resp.ok){
             startProductActivo(producto);
             return
         }
+        return Swal.fire({
+            title: 'Ocurrio un error al crear el producto',
+            html: resp.msg,
+            icon: 'error',
+        });
     }
 
     return {

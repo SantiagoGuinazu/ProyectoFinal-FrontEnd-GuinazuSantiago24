@@ -34,8 +34,18 @@ export const AddProductPage = () => {
     const onSubmitForm = () => {
         const isEmpty = Object.keys(errors).lenght === 0;
         if (!isEmpty) return;
-        startCreateProduct({title, description, code, price, stock, category, file})
 
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('code', code);
+        formData.append('price', price);
+        formData.append('stock', stock);
+        formData.append('category', category);
+        formData.append('file', file);
+        
+        //startCreateProduct({title, description, code, price, stock, category, file})
+        startCreateProduct(formData);
     }
 
     const onFileChange = ({target}) =>{
