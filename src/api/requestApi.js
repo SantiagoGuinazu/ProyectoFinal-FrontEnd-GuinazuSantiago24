@@ -3,6 +3,7 @@ import ecommerceApi from './config';
 export const loginUser = async(email, password) => {
     try {
         const { data } = await ecommerceApi.post('/auth/login', { email, password });
+        console.log(data)
         const { token, usuario } = data;
         const { _id, name, lastName, rol, cart_id } = usuario;
         localStorage.setItem('token', token);

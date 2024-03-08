@@ -33,7 +33,7 @@ export const AddProductPage = () => {
 
     const onSubmitForm = () => {
         const isEmpty = Object.keys(errors).lenght === 0;
-        if (!isEmpty) return;
+        if (isEmpty) return;
 
         const formData = new FormData();
         formData.append('title', title);

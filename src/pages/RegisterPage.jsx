@@ -26,11 +26,11 @@ export const RegisterPage = () => {
 
   const { email, password, name, lastName } = values;
   
-  const disabled = (email!='' && password!='' && name!='' && lastName) ? false:true;
+  const disabled = (email!='' && password!='' && name!='' && lastName!='') ? false:true;
 
   const onSubmitForm = () => {
     const isEmpty = Object.keys(errors).lenght === 0;
-    if(!isEmpty) return;
+    if(isEmpty) return;
     startRegister(email, password, name, lastName);
   }
 

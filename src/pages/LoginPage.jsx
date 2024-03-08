@@ -9,7 +9,7 @@ export const LoginPage = () => {
 
   const initialValues = {
     email: '',
-    password: ''
+    password: '',
   };
 
   const validationSchema = Yup.object({
@@ -21,12 +21,13 @@ export const LoginPage = () => {
   const { startLogin } = useAuthStore();
 
   const { email, password } = values;
-
+  
   const disabled = (email!='' && password!='') ? false:true;
-
+  
   const onSubmitForm = () => {
     const isEmpty = Object.keys(errors).lenght === 0;
-    if (!isEmpty) return;
+    console.log(isEmpty)
+    if (isEmpty) return;
     startLogin(email, password);
   }
 

@@ -9,7 +9,7 @@ export const ProductPage = () => {
     return(
         <>
             <NavBar/>
-            <Container masWidth='sm'>
+            <Container maxWidth='sm'>
                 <Grid container spacing={0} direction='column'>
                     <Grid item mt={1} mb={1}>
                         <Typography>Titulo: {product?.title}</Typography>
