@@ -3,13 +3,13 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link, useNavigate } from "react-router-dom";
 import { useProductStore } from "../hooks/useProductStore";
 
-export const CardItem = ({ _id, title, description, code, price, stock, category, thumbnail }) => {
+export const CardItem = ({ _id, title, description, code, price, stock, category, thumbnails }) => {
 
     const { startProductActivo } = useProductStore();
     const navigate = useNavigate();
 
     const onClickCard = () => {
-        startProductActivo({ _id, title, description, code, price, stock, category, thumbnail });
+        startProductActivo({ _id, title, description, code, price, stock, category, thumbnails });
         navigate(`/product/${_id}`);
     };
 
@@ -22,7 +22,7 @@ export const CardItem = ({ _id, title, description, code, price, stock, category
                 <CardMedia
                     component="img"
                     height="194"
-                    image="logo.jpg"
+                    image="logo.jpg" // falta cambiar imagenes {thumbnails}
                     alt={title}
                 />
                 <CardContent>

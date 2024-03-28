@@ -21,7 +21,7 @@ export const ProductPage = () => {
                         <Button>Agregar al carrito</Button>
                     </Grid>
                     <Grid item  mb={8}> 
-                        <img src={product?.thumbnail} alt={product?.title} width='50%'/>
+                        <img src={product?.thumbnails} alt={product?.title} width='50%'/>
                     </Grid>
 
                 </Grid>
