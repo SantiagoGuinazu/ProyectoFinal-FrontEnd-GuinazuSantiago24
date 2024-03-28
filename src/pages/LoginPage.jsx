@@ -4,6 +4,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../hooks/useAuthStore';
+import { NavBarCito } from '../components/Navbarcito';
 
 export const LoginPage = () => {
 
@@ -26,7 +27,6 @@ export const LoginPage = () => {
   
   const onSubmitForm = () => {
     const isEmpty = Object.keys(errors).lenght === 0;
-    console.log(isEmpty)
     if (isEmpty) return;
     startLogin(email, password);
   }
@@ -40,6 +40,7 @@ export const LoginPage = () => {
       sx={{ minHeight: '100vh', backgroundColor: 'lightblue' }}
     >
       <Grid item sx={{ width: 450, backgroundColor: 'white', borderRadius: 2, padding: 3 }}>
+      <NavBarCito/>
         <Typography variant='h4'>Login</Typography>
         <Grid container>
           <Grid item mt={3} xs={12}>

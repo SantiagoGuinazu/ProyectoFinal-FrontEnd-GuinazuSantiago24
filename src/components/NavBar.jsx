@@ -13,11 +13,11 @@ export const NavBar = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            backgroundColor: '#FFE600'
+            backgroundColor: '#4d4d4d',
         }}>
             <div style={{ display: 'flex', alignItems: 'center', margin: '5px', padding: '5px', marginLeft: '20px' }}>
                 <NavLink to='/'>
-                    <Avatar alt='logo' src='logo.jpg' sx={{ width: 56, height: 56 }} />
+                    <Avatar alt='logo' src='../logo.jpg' sx={{ width: 56, height: 56 }} />
                 </NavLink>
                 <div>
                     {

@@ -4,6 +4,7 @@ import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../hooks/useAuthStore';
+import { NavBarCito } from '../components/Navbarcito';
 
 export const RegisterPage = () => {
 
@@ -43,7 +44,7 @@ export const RegisterPage = () => {
     sx={{minHeight:'100vh', backgroundColor: 'lightgreen'}}
     >
       <Grid item sx={{width: 450, backgroundColor: 'white', borderRadius:2, padding: 3}}>
-
+      <NavBarCito/>
         <Typography variant='h4'>Registro</Typography>
 
         <Grid container>

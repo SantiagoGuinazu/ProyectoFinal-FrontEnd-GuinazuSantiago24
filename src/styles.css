@@ -8,9 +8,9 @@
     line-height: inherit;
     white-space: nowrap;
     text-decoration: none;
-    color: #47452E;
+    color: whitesmoke;
 }
 
 .navbar-brand:hover {
-    color: #47452E90;
+    color: yellow;
 }
