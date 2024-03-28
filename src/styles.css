@@ -9,6 +9,8 @@
     white-space: nowrap;
     text-decoration: none;
     color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    align-content: center;
 }
 
 .navbar-brand:hover {

@@ -22,7 +22,7 @@ export const CardItem = ({ _id, title, description, code, price, stock, category
                 <CardMedia
                     component="img"
                     height="194"
-                    image={thumbnail}
+                    image="logo.jpg"
                     alt={title}
                 />
                 <CardContent>

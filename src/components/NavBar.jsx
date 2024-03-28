@@ -29,7 +29,7 @@ export const NavBar = () => {
                     }
                 </div>
             </div>
-            <div style={{ marginRight: '50px' }}>
+            <div style={{ display:'flex', alignContent:'center', marginRight: '50px' }}>
                 <NavLink
                     to={`${status === 'not-authenticated' ? '/auth/login' : '/mi-carrito'}`}
                     className='navbar-brand'
