@@ -48,7 +48,7 @@ return (
             <Container maxWidth='md' style={{ marginTop: 30 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
-                        <img src={product?.thumbnail} alt={product?.title} style={{ maxWidth: '70%', borderRadius: 8, boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }} />
+                        <img src={product?.thumbnails} alt={product?.title} style={{ maxWidth: '70%', borderRadius: 8, boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container spacing={2} direction="column">
