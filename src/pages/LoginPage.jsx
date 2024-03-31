@@ -31,6 +31,13 @@ export const LoginPage = () => {
     startLogin(email, password);
   }
 
+  const handelResetPass = () => {
+    Swal.fire({
+      title: 'Se te envio un email al correo para reestablecer la contraseña',
+      icon: 'success',
+    });
+  }
+
   return (
     <Grid container
       spacing={0}
@@ -86,6 +93,10 @@ export const LoginPage = () => {
 
           <Grid container direction='row' justifyContent='end' mt={2}>
             <Link to='/auth/register'>¿No tienes cuenta? Registrarse</Link>
+          </Grid>
+
+          <Grid container direction='row' justifyContent='end' mt={2}>
+            <Link to='/auth/email'>¿Reestablecer contraseña?</Link>
           </Grid>
 
         </Grid>

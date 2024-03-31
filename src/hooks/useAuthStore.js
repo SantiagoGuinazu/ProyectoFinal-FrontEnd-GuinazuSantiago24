@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser, registerUser, validarToken } from "../api/requestApi";
+import { loginUser, registerUser, validarToken, resetPass, sendEmailResetPass } from "../api/requestApi";
 import { onLogin, onLogout } from "../store/authSlice";
 import Swal from "sweetalert2";
+import { useCartStore } from "./useCartStore";
+import { useTicketStore } from "./useTicketStore";
 
 export const useAuthStore = () => {
 
@@ -17,10 +19,14 @@ export const useAuthStore = () => {
         isAdmin,
     } = useSelector(state => state.auth);
 
+    const { startGetCartById } = useCartStore();
+    const { startGetTickets } = useTicketStore();
+
     const startLogin = async(email, password) => {
         const resp = await loginUser(email,password);
         if(resp.ok) {
             const {_id, cart_id, lastName, name, rol} = resp;
+            startGetCartById(cart_id);
             return dispatch(onLogin({_id, cart_id, lastName, name, rol}))
         }
 
@@ -29,6 +35,43 @@ export const useAuthStore = () => {
             html: resp.msg,
             icon: 'error',
         });
+    }
+
+    const startSendEmailResetPass = async (email) => {
+        const resp = await sendEmailResetPass(email);
+        if (resp.ok) {
+            return Swal.fire({
+                title: 'Email enviado',
+                html: 'Se te envio un email a tu casilla de correo para continuar el reset de tu contraseña',
+                icon: 'success',
+            });
+        }
+
+        return Swal.fire({
+            title: 'Uhh ocurrio un error',
+            html: resp.msg,
+            icon: 'error',
+        });
+    }
+
+    const startResetPass = async (password, token) => {
+        const resp = await resetPass(password, token);
+        if (resp.ok) {
+            Swal.fire({
+                title: 'Contraseña reseteada',
+                html: 'Tu contraseña fue cambiada correctamente',
+                icon: 'success',
+            });
+            return true;
+        }
+
+        Swal.fire({
+            title: 'Uhh ocurrio un error',
+            html: resp.msg,
+            icon: 'error',
+        });
+
+        return false;
     }
 
     const startRegister = async(email, password, name, lastName) => {
@@ -55,6 +98,7 @@ export const useAuthStore = () => {
 
         if(resp.ok) {
             const {_id, cart_id, lastName, name, rol} = resp;
+            startGetCartById(cart_id);
             return dispatch(onLogin({_id, cart_id, lastName, name, rol}))
         };
         startLogout();
@@ -75,5 +119,7 @@ export const useAuthStore = () => {
         startRegister,
         startCheckingLogin,
         startLogout,
+        startSendEmailResetPass,
+        startResetPass,
     };
 };
