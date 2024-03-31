@@ -168,7 +168,6 @@ export const confirmarCompra = async (idCart) => {
     }
 }
 
-// TICKETS
 export const getTickets = async () => {
     try {
         const { data } = await ecommerceApi.get('/tickets');
