@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { createProduct, getProducts, deleteProduct, getProductbyId, updateProduct } from "../api/requestApi";
 import { onPagination, onProduct, onProducts, onDeleteProduct, onUpdateProduct } from "../store/productSlice";
+import Swal from 'sweetalert2';
 
 export const useProductStore = () => {
 

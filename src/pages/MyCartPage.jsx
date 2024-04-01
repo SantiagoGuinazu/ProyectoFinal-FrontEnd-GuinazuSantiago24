@@ -4,6 +4,7 @@ import { NavBar } from "../components/NavBar";
 import { useCartStore } from "../hooks/useCartStore";
 import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 export const MyCartPage = () => {
 
@@ -29,6 +30,10 @@ export const MyCartPage = () => {
         setConfirmCompra(true);
         await startConfirmarCompra();
         setConfirmCompra(false);
+        Swal.fire({
+            title: 'Compra exitosa',
+            icon: 'success',
+        });
     }
 
     if (confirmCompra) {
@@ -46,7 +51,7 @@ export const MyCartPage = () => {
             {
                 cart.products.length > 0 &&
                 cart.products.map((product) => (
-                    <div key={product.id._id}>
+                    <div key={product.id._id} style={{display:'flex', textAlign: 'center', justifyContent: 'center', marginTop: '50px' }}>
                         <CardItemCart  {...product} />
                     </div>
                 ))
@@ -55,11 +60,11 @@ export const MyCartPage = () => {
             {
                 cart.products.length > 0 &&
                 <>
-                    <div className="d-flex justify-content-center mt-3">
+                    <div style={{display:'flex', textAlign: 'center', justifyContent: 'center', marginTop: '50px' }}>
                         <strong>Total: </strong> ${total.toFixed(2)}
                     </div>
-                    <div className="d-flex justify-content-center mt-3">
-                        <button onClick={confirmarCompra} className="btn btn-primary">Confirmar compra</button>
+                    <div style={{display:'flex', textAlign: 'center', justifyContent: 'center', marginTop: '50px' }}>
+                        <Button variant="contained" color="primary" onClick={confirmarCompra}>Confirmar compra</Button>
                     </div>
                 </>
             }

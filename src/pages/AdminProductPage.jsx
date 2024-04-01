@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, Fab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Button } from '@mui/material';
+import { Box, Fab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Button, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -44,7 +44,7 @@ export const AdminProductPage = () => {
         <>
             <NavBar />
             {loading ? (
-                <div>Loading...</div>
+                <Typography variant="h4">Loading...</Typography>
             ) : (
                 <Box sx={{ margin: '30px' }}>
                     <Box sx={{ '& > :not(style)': { m: 1 }, position: 'fixed', bottom: 50, right: 50 }}>

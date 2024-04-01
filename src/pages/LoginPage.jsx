@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../hooks/useAuthStore';
 import { NavBarCito } from '../components/Navbarcito';
+import Swal from 'sweetalert2';
 
 export const LoginPage = () => {
 

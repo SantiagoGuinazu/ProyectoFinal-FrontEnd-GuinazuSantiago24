@@ -21,7 +21,7 @@ export const EditProductPage = () => {
         price: product.price,
         stock: product.stock,
         category: product.category,
-        thumbnail: product.thumbnail,
+        thumbnails: product.thumbnails,
         file: '',
     });
 

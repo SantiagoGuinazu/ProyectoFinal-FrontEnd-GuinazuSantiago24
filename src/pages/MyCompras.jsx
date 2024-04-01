@@ -48,7 +48,7 @@ export const MyCompras = () => {
                         <Typography variant="h4">Historial de Compras</Typography>
                     </div>
                     {tickets.map((ticket) => (
-                        <div key={ticket._id} style={{ border: '1px solid #ccc', padding: '20px', marginTop: '20px' }}>
+                        <div key={ticket._id} style={{textAlign: 'center', border: '1px solid #ccc', padding: '20px', marginTop: '20px' }}>
                             <Typography variant="h5">Código: {ticket.code}</Typography>
                             <Typography variant="body1">Fecha de compra: {new Date(ticket.purchase_datetime).toLocaleString()}</Typography>
                             <Typography variant="body1">Monto total: ${ticket.amount.toFixed(2)}</Typography>
