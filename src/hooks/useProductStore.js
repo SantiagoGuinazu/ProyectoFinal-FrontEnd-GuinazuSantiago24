@@ -33,7 +33,7 @@ export const useProductStore = () => {
         };
 
         return Swal.fire({
-            title: 'Debe estar loggeado',
+            title: 'Para realizar una compra.. Debe estar loggeado',
             html: 'Por favor cree su usuario o ingrese con su email y contraseña',
             icon: 'error',
         });
