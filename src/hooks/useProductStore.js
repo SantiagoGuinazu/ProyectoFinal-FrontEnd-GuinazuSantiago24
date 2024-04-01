@@ -33,8 +33,8 @@ export const useProductStore = () => {
         };
 
         return Swal.fire({
-            title: 'Uhh ocurrio un error al obtener los productos',
-            html: 'Por favor intenta mas tarte',
+            title: 'Debe estar loggeado',
+            html: 'Por favor cree su usuario o ingrese con su email y contraseña',
             icon: 'error',
         });
     }
