@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAuthStore } from '../hooks/useAuthStore';
 import { useNavigate } from 'react-router-dom';
+import { NavBarCito } from '../components/Navbarcito';
 
 export const ResetPasswordEmailPage = () => {
 
@@ -37,8 +38,9 @@ export const ResetPasswordEmailPage = () => {
             justifyContent='center'
             sx={{ minHeight: '100vh', backgroundColor: '#262254' }}
         >
-
+            
             <Grid item sx={{ width: 450, backgroundColor: 'white', borderRadius: 2, padding: 3 }}>
+                <NavBarCito/>
                 <Typography variant='h5'>Ingrese el email</Typography>
                 <Grid container>
                     <Grid item mt={2} xs={12}>
