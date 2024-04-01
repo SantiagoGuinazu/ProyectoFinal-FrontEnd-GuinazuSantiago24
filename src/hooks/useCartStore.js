@@ -27,6 +27,11 @@ export const useCartStore = () => {
         const resp = await addProductInCart(cart._id, idProduct);
         if (resp.ok) {
             dispatch(onCart(resp.cart));
+            return Swal.fire({
+                title: 'Se agrego el producto',
+                html: 'Agregado correctamente',
+                icon: 'success',
+            });
             return;
         };
 
