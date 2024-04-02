@@ -1,4 +1,4 @@
-import { Avatar, Button, Badge } from '@mui/material';
+import { Avatar, Button, Badge, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
 import { useAuthStore } from '../hooks/useAuthStore';
@@ -17,11 +17,13 @@ export const NavBar = () => {
             alignItems: 'center',
             justifyContent: 'space-between',
             backgroundColor: '#4d4d4d',
+            lineHeight: 1.6,
         }}>
             <div style={{ display: 'flex', alignItems: 'center', margin: '5px', padding: '5px', marginLeft: '20px' }}>
                 <NavLink to='/'>
                     <Avatar alt='logo' src='../logo.jpg' sx={{ width: 56, height: 56 }} />
                 </NavLink>
+                <Typography style={{color: "whitesmoke", fontFamily:"'Courier New', Courier, monospace", padding: "20px", fontSize: "2em", fontWeight: "bold", }}>Ecommerce Santiago Guinazu - Front</Typography>
                 <div>
                     {
                         isAdmin &&
