@@ -51,7 +51,7 @@ export const useCartStore = () => {
             html: 'Por favor intenta mas tarte',
             icon: 'error',
         });
-    }
+    };
 
     const startDeleteProductInCart = async (idProduct) => {
         const resp = await deleteProductInCart(cart._id, idProduct);

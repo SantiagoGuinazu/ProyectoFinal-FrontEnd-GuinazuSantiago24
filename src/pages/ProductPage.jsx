@@ -1,6 +1,6 @@
 import { Button, Container, Grid, Typography } from "@mui/material";
-import { NavBar } from "../components/NavBar"
-import { useProductStore } from "../hooks/useProductStore"
+import { NavBar } from "../components/NavBar";
+import { useProductStore } from "../hooks/useProductStore";
 import { AddCircleOutline, RemoveCircleOutline, ShoppingCart, DeleteOutline } from '@mui/icons-material';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';

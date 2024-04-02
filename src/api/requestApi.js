@@ -146,7 +146,7 @@ export const removeProductInCart = async (idCart, idProduct, quantity) => {
         console.log({ error });
         return { ok: false, msg: error.response.data.msg };
     }
-}
+};
 
 export const deleteProductInCart = async (idCart, idProduct) => {
     try {
