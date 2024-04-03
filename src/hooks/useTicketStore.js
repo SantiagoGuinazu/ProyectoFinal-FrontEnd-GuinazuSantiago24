@@ -3,7 +3,6 @@ import { getTickets } from "../api/requestApi";
 import Swal from "sweetalert2";
 import { onTickets } from "../store/ticketSlice";
 
-
 export const useTicketStore = () => {
 
     const dispatch = useDispatch();

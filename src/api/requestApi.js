@@ -139,6 +139,7 @@ export const addProductInCart = async (idCart, idProduct) => {
 }
 
 export const removeProductInCart = async (idCart, idProduct, quantity) => {
+    console.log({idCart,idProduct,quantity})
     try {
         const { data } = await ecommerceApi.put(`/carts/${idCart}/products/${idProduct}`, { quantity });
         return { ok: true, cart: data.carrito };
