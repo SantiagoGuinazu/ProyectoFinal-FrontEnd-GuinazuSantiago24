@@ -6,33 +6,33 @@ import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 
-import axios from "axios"; //MP
-import { initMercadoPago, Wallet } from '@mercadopago/sdk-react' //MP
+//import axios from "axios"; //MP
+//import { initMercadoPago, Wallet } from '@mercadopago/sdk-react' //MP
 
 export const MyCartPage = () => {
 
-    initMercadoPago('TEST-98242cc4-cd29-4e76-8c6a-0264a6b43c6f',{ 
-        locale:"es-AR",
-    });//MP
+    //initMercadoPago('TEST-98242cc4-cd29-4e76-8c6a-0264a6b43c6f',{ 
+    //    locale:"es-AR",
+    //});//MP
 
     
-    const [preferenceId, setPreferenceId] = useState(null) //MP
     const { cart, startConfirmarCompra } = useCartStore();
     const [confirmCompra, setConfirmCompra] = useState(false);
+    //const [preferenceId, setPreferenceId] = useState(null) //MP
     
-    const createPreference = async () => { //MP
-        try {
-            const response = await axios.post("http://localhost:8080/create_preference",{
-                title: "Items varios",
-                price: total,
-                quantity:1,
-            })
-            const {id} = response.data;
-            return id;
-        } catch (error) {
-            console.log(error)
-        }
-    } //MP
+    //const createPreference = async () => { //MP
+    //    try {
+    //        const response = await axios.post("http://localhost:8080/api/create_preference",{
+    //            title: "Items varios",
+    //            price: total,
+    //            quantity:1,
+    //        })
+    //        const {id} = response.data;
+    //        return id;
+    //    } catch (error) {
+    //        console.log(error)
+    //    }
+    //} //MP
 
     const confirmarCompra = async () => {
         console.log('confirmar compra');
@@ -45,13 +45,13 @@ export const MyCartPage = () => {
         });
     }
 
-    const handleBuy = async () => {
-        const id = await createPreference()
-        if(id){
-            setPreferenceId(id)
-            confirmarCompra()
-        }
-    }
+    //const handleBuy = async () => {
+    //    const id = await createPreference()
+    //    if(id){
+    //        setPreferenceId(id)
+    //        /*confirmarCompra()*/
+    //    }
+    //}
     
     if (!cart) {
         return (
@@ -95,8 +95,8 @@ export const MyCartPage = () => {
                         <strong>Total: </strong> ${total.toFixed(2)}
                     </div>
                     <div style={{display:'flex', textAlign: 'center', justifyContent: 'center', marginTop: '50px' }}>
-                        <Button variant="contained" color="primary" onClick={handleBuy}>Confirmar compra</Button>
-                    {preferenceId && <Wallet initialization={{ preferenceId: preferenceId, redirectMode: 'modal' }}/>}   
+                        <Button variant="contained" color="primary" onClick={confirmarCompra}>Confirmar compra</Button>
+                    {/*preferenceId && <Wallet initialization={{ preferenceId: preferenceId, redirectMode: 'modal' }}/>*/}   
                     </div>
                 </>
             }
