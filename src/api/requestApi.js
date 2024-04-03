@@ -1,6 +1,6 @@
 import ecommerceApi from './config';
 
-export const loginUser = async(email, password) => {
+export const loginUser = async (email, password) => {
     try {
         const { data } = await ecommerceApi.post('/auth/login', { email, password });
         console.log(data)
@@ -14,7 +14,7 @@ export const loginUser = async(email, password) => {
     }
 };
 
-export const registerUser = async(email, password, name, lastName) => {
+export const registerUser = async (email, password, name, lastName) => {
     try {
         const { data } = await ecommerceApi.post('/auth/register', { email, password, name, lastName });
         const { token, usuario } = data;
@@ -27,7 +27,7 @@ export const registerUser = async(email, password, name, lastName) => {
     }
 };
 
-export const validarToken = async() => {
+export const validarToken = async () => {
     try {
         const { data } = await ecommerceApi.get('/auth/renew');
         const { token, usuario } = data;
@@ -90,10 +90,10 @@ export const getProductbyId = async (id) => {
 export const createProduct = async (producto) => {
     try {
         const { data } = await ecommerceApi.post('/products', producto);
-        return { ok: true, producto:data.producto };
+        return { ok: true, producto: data.producto };
     } catch (error) {
         console.log(error);
-        return { ok: false,  msg: error.response.data.errors[0].msg };
+        return { ok: false, msg: error.response.data.errors[0].msg };
     }
 }
 
