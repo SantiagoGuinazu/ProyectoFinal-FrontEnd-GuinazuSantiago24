@@ -17,10 +17,12 @@ export const MyCartPage = () => {
 
     
     const [preferenceId, setPreferenceId] = useState(null) //MP
+    const { cart, startConfirmarCompra } = useCartStore();
+    const [confirmCompra, setConfirmCompra] = useState(false);
     
     const createPreference = async () => { //MP
         try {
-            const response = await axios.post("http://localhost:8080/api/create_preference",{
+            const response = await axios.post("http://localhost:8080/create_preference",{
                 title: "Items varios",
                 price: total,
                 quantity:1,
@@ -31,9 +33,25 @@ export const MyCartPage = () => {
             console.log(error)
         }
     } //MP
-    
-    const { cart, startConfirmarCompra } = useCartStore();
-    const [confirmCompra, setConfirmCompra] = useState(false);
+
+    const confirmarCompra = async () => {
+        console.log('confirmar compra');
+        setConfirmCompra(true);
+        await startConfirmarCompra();
+        setConfirmCompra(false);
+        Swal.fire({
+            title: 'Compra exitosa',
+            icon: 'success',
+        });
+    }
+
+    const handleBuy = async () => {
+        const id = await createPreference()
+        if(id){
+            setPreferenceId(id)
+            confirmarCompra()
+        }
+    }
     
     if (!cart) {
         return (
@@ -48,22 +66,6 @@ export const MyCartPage = () => {
         return accumulator + (product.quantity * product.id.price);
     }, 0);
 
-    const confirmarCompra = async () => {
-        console.log('confirmar compra');
-        setConfirmCompra(true);
-        await startConfirmarCompra();
-        setConfirmCompra(false);
-
-        const id = await createPreference();//MP
-            if(id) {
-                setPreferenceId(id);
-        }
-
-        Swal.fire({
-            title: 'Compra exitosa',
-            icon: 'success',
-        });
-    }
 
     if (confirmCompra) {
         return (
@@ -93,8 +95,8 @@ export const MyCartPage = () => {
                         <strong>Total: </strong> ${total.toFixed(2)}
                     </div>
                     <div style={{display:'flex', textAlign: 'center', justifyContent: 'center', marginTop: '50px' }}>
-                        <Button variant="contained" color="primary" onClick={confirmarCompra}>Confirmar compra</Button>
-                    {preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts:{ valueProp: 'smart_option'}}} />}   
+                        <Button variant="contained" color="primary" onClick={handleBuy}>Confirmar compra</Button>
+                    {preferenceId && <Wallet initialization={{ preferenceId: preferenceId, redirectMode: 'modal' }}/>}   
                     </div>
                 </>
             }
