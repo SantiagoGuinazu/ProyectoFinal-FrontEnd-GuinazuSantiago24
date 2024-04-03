@@ -6,7 +6,6 @@ import { useCartStore } from "./useCartStore";
 import { useTicketStore } from "./useTicketStore";
 
 export const useAuthStore = () => {
-
     const dispatch = useDispatch();
     const {
         _id,
@@ -28,14 +27,14 @@ export const useAuthStore = () => {
             const {_id, cart_id, lastName, name, rol} = resp;
             startGetCartById(cart_id);
             return dispatch(onLogin({_id, cart_id, lastName, name, rol}))
-        }
+        };
 
         return Swal.fire({
             title: 'Uhh ocurrio un error',
             html: resp.msg,
             icon: 'error',
         });
-    }
+    };
 
     const startSendEmailResetPass = async (email) => {
         const resp = await sendEmailResetPass(email);
@@ -52,7 +51,7 @@ export const useAuthStore = () => {
             html: resp.msg,
             icon: 'error',
         });
-    }
+    };
 
     const startResetPass = async (password, token) => {
         const resp = await resetPass(password, token);
@@ -72,7 +71,7 @@ export const useAuthStore = () => {
         });
 
         return false;
-    }
+    };
 
     const startRegister = async(email, password, name, lastName) => {
         const resp = await registerUser(email, password, name, lastName);
@@ -86,12 +85,12 @@ export const useAuthStore = () => {
             html: resp.msg,
             icon: 'error',
         });
-    }
+    };
 
     const startLogout = async() => {
         dispatch(onLogout());
         localStorage.clear();
-    }
+    };
 
     const startCheckingLogin = async() => {
         const resp = await validarToken();
@@ -102,8 +101,7 @@ export const useAuthStore = () => {
             return dispatch(onLogin({_id, cart_id, lastName, name, rol}))
         };
         startLogout();
-    }
-
+    };
 
     return {
         _id,

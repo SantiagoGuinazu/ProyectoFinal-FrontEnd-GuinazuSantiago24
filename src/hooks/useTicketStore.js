@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import { onTickets } from "../store/ticketSlice";
 
 export const useTicketStore = () => {
-
     const dispatch = useDispatch();
     const { tickets } = useSelector(state => state.ticket);
 
@@ -20,10 +19,10 @@ export const useTicketStore = () => {
             html: 'Por favor intenta mas tarte',
             icon: 'error',
         });
-    }
+    };
 
     return {
         tickets,
         startGetTickets
     };
-}
+};

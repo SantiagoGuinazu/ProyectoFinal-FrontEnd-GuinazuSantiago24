@@ -58,7 +58,7 @@ export const resetPass = async (password, token) => {
         console.log(error);
         return { ok: false, msg: error.response.data.msg };
     }
-}
+};
 
 export const getProducts = async (pageProducts = 1) => {
     try {
@@ -71,7 +71,7 @@ export const getProducts = async (pageProducts = 1) => {
         console.log(error);
         return { ok: false };
     }
-}
+};
 
 export const getProductbyId = async (id) => {
     try {
@@ -85,7 +85,7 @@ export const getProductbyId = async (id) => {
         console.log(error);
         return { ok: false };
     }
-}
+};
 
 export const createProduct = async (producto) => {
     try {
@@ -95,7 +95,7 @@ export const createProduct = async (producto) => {
         console.log(error);
         return { ok: false, msg: error.response.data.errors[0].msg };
     }
-}
+};
 
 export const deleteProduct = async (idProduct) => {
     try {
@@ -105,7 +105,7 @@ export const deleteProduct = async (idProduct) => {
         console.log({ error });
         return { ok: false, msg: error.response.data.msg };
     }
-}
+};
 
 export const updateProduct = async (id, values) => {
     try {
@@ -115,7 +115,7 @@ export const updateProduct = async (id, values) => {
         console.log({ error });
         return { ok: false, msg: error.response.data.msg };
     }
-}
+};
 
 export const getCartById = async (id) => {
     try {
@@ -126,7 +126,7 @@ export const getCartById = async (id) => {
         console.log(error);
         return { ok: false };
     }
-}
+};
 
 export const addProductInCart = async (idCart, idProduct) => {
     try {
@@ -136,7 +136,7 @@ export const addProductInCart = async (idCart, idProduct) => {
         console.log({ error });
         return { ok: false, msg: error.response.data.msg };
     }
-}
+};
 
 export const removeProductInCart = async (idCart, idProduct, quantity) => {
     console.log({idCart,idProduct,quantity})
@@ -157,7 +157,7 @@ export const deleteProductInCart = async (idCart, idProduct) => {
         console.log({ error });
         return { ok: false, msg: error.response.data.msg };
     }
-}
+};
 
 export const confirmarCompra = async (idCart) => {
     try {
@@ -167,7 +167,7 @@ export const confirmarCompra = async (idCart) => {
         console.log({ error });
         return { ok: false, msg: error.response.data.msg };
     }
-}
+};
 
 export const getTickets = async () => {
     try {
@@ -177,4 +177,4 @@ export const getTickets = async () => {
         console.log(error);
         return { ok: false };
     }
-}
+};

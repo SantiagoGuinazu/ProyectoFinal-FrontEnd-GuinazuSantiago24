@@ -10,6 +10,6 @@ ecommerceApi.interceptors.request.use(config=>{
         'x-token': localStorage.getItem('token'),
     }
     return config;
-})
+});
 
 export default ecommerceApi;

@@ -20,7 +20,7 @@ export const RegisterPage = () => {
     name:Yup.string().required('El Name es obligatorio').min(3,'El Name debe tener al menos 3 caracteres'),
     lastName:Yup.string().required('El LastName es obligatorio').min(3,'El LastName debe tener al menos 3 caracteres'),
     password:Yup.string().required('El password es obligatorio').min(6,'La password debe tener al menos 6 caracteres'),
-  })
+  });
 
   const { values, handleChange, errors } = useFormik({initialValues, validationSchema});
   const {startRegister} = useAuthStore();
@@ -33,7 +33,7 @@ export const RegisterPage = () => {
     const isEmpty = Object.keys(errors).lenght === 0;
     if(isEmpty) return;
     startRegister(email, password, name, lastName);
-  }
+  };
 
   return (
     <Grid container 
@@ -130,4 +130,4 @@ export const RegisterPage = () => {
       </Grid>
     </Grid>
   )
-}
+};

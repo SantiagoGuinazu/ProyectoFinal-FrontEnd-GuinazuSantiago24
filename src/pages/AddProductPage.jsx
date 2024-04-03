@@ -34,7 +34,7 @@ export const AddProductPage = () => {
     });
 
     const { values, handleChange, errors, setValues } = useFormik({initialValues, validationSchema});
-    const { startCreateProduct} = useProductStore()
+    const { startCreateProduct} = useProductStore();
 
     const { title, description, code, price, stock, category, file } = values;
 
@@ -56,7 +56,7 @@ export const AddProductPage = () => {
             formData.append('file', file);
 
             const success = await startCreateProduct(formData);
-            console.log({success})
+            console.log({success});
 
             if(success){
                 setLoading(false);
@@ -69,21 +69,21 @@ export const AddProductPage = () => {
             } else {
                 setLoading(false);
                 setShowMessage(false);
-            }
+            };
         } catch (error) {
             console.log(error);
             setLoading(false);
             setShowMessage(false);
-        }
-    }
+        };
+    };
 
     const onFileChange = ({target}) =>{
         if(target.file===0) return;
         setValues({
             ...values,
             file: target.files[0],
-        })
-    }
+        });
+    };
 
     if (loading)
         return <LoadingComponent />

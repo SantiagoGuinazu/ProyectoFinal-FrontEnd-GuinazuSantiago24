@@ -3,7 +3,6 @@ import { addProductInCart, confirmarCompra, deleteProductInCart, getCartById, re
 import Swal from "sweetalert2";
 import { onCart } from "../store/cartSlice";
 
-
 export const useCartStore = () => {
 
     const dispatch = useDispatch();
@@ -21,7 +20,7 @@ export const useCartStore = () => {
             html: 'Por favor intenta mas tarte',
             icon: 'error',
         });
-    }
+    };
 
     const startAddProductInCart = async (idProduct) => {
         const resp = await addProductInCart(cart._id, idProduct);
@@ -35,7 +34,7 @@ export const useCartStore = () => {
             html: 'Por favor intenta mas tarte',
             icon: 'error',
         });
-    }
+    };
 
     const startRemoveProductInCart = async (idProduct) => {
         const p = cart.products.find(p => p.id._id == idProduct);
@@ -64,7 +63,7 @@ export const useCartStore = () => {
             html: 'Por favor intenta mas tarte',
             icon: 'error',
         });
-    }
+    };
 
     const startConfirmarCompra = async () => {
         const resp = await confirmarCompra(cart._id);
@@ -77,8 +76,7 @@ export const useCartStore = () => {
             html: 'Por favor intenta mas tarte',
             icon: 'error',
         });
-    }
-
+    };
 
     return {
         cart,
@@ -88,4 +86,4 @@ export const useCartStore = () => {
         startDeleteProductInCart,
         startConfirmarCompra,
     };
-}
+};

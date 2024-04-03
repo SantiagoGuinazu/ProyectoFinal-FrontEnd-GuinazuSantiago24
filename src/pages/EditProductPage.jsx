@@ -184,8 +184,6 @@ export const EditProductPage = () => {
                                     onChange={onFileChange}
                                 />
                             </Grid>
-
-
                             <Grid item mt={2} xs={12}>
                                 <Button
                                     type='submit'

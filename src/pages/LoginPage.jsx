@@ -17,7 +17,7 @@ export const LoginPage = () => {
   const validationSchema = Yup.object({
     email:Yup.string().required('El email es obligatorio').email('Email Invalido'),
     password:Yup.string().required('El password es obligatorio').min(6, 'La password debe tener al menos 6 caracteres'),
-  })
+  });
 
   const { values, handleChange, errors } = useFormik({ initialValues, validationSchema });
   const { startLogin } = useAuthStore();
@@ -30,14 +30,14 @@ export const LoginPage = () => {
     const isEmpty = Object.keys(errors).lenght === 0;
     if (isEmpty) return;
     startLogin(email, password);
-  }
+  };
 
   const handelResetPass = () => {
     Swal.fire({
       title: 'Se te envio un email al correo para reestablecer la contraseña',
       icon: 'success',
     });
-  }
+  };
 
   return (
     <Grid container
@@ -104,4 +104,4 @@ export const LoginPage = () => {
       </Grid>
     </Grid>
   )
-}
+};

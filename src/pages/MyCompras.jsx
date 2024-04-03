@@ -19,7 +19,7 @@ export const MyCompras = () => {
                 <Typography variant="h4">Cargando tus compras...</Typography>
             </>
         );
-    }
+    };
 
     return (
         <>

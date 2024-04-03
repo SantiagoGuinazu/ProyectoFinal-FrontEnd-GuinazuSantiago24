@@ -24,7 +24,7 @@ export const ProductPage = () => {
                 <Typography variant="h4">Cargando producto...</Typography>
             </>
         );
-    }
+    };
 
     const handleAumentarQuantity = () => {
         if (quantity < product.stock) {

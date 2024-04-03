@@ -10,12 +10,12 @@ export const InicioPage = () => {
 
   useEffect(() => {
     startGetProducts();
-  },[])
+  },[]);
   
   return (
     <div>
       <NavBar/>
       <CardProducts/>
     </div>
-  )
-}
+  );
+};

@@ -14,7 +14,6 @@ export const MyCartPage = () => {
     //initMercadoPago('TEST-98242cc4-cd29-4e76-8c6a-0264a6b43c6f',{ 
     //    locale:"es-AR",
     //});//MP
-
     
     const { cart, startConfirmarCompra } = useCartStore();
     const [confirmCompra, setConfirmCompra] = useState(false);
@@ -43,7 +42,7 @@ export const MyCartPage = () => {
             title: 'Compra exitosa',
             icon: 'success',
         });
-    }
+    };
 
     //const handleBuy = async () => {
     //    const id = await createPreference()
@@ -60,7 +59,7 @@ export const MyCartPage = () => {
                 <Typography variant="h4">Cargando carrito...</Typography>
             </>
         );
-    }
+    };
 
     const total = cart?.products?.reduce((accumulator, product) => {
         return accumulator + (product.quantity * product.id.price);
@@ -74,7 +73,7 @@ export const MyCartPage = () => {
                 <Typography variant="h4">Procesando compra...</Typography>
             </>
         );
-    }
+    };
 
     return (
         <>
