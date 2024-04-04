@@ -3,9 +3,7 @@ import { getVariablesEnv } from '../helpers/getVariablesEnv';
 
 const { VITE_URL_API } = getVariablesEnv();
 
-const ecommerceApi = axios.create({
-    baseURL: VITE_URL_API
-});
+const ecommerceApi = axios.create({ baseURL: VITE_URL_API });
 
 ecommerceApi.interceptors.request.use(config=>{
     config.headers = {

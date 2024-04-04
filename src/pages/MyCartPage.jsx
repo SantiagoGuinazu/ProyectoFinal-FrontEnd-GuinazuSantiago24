@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CardItemCart } from "../components/CardItemCart";
 import { NavBar } from "../components/NavBar";
 import { useCartStore } from "../hooks/useCartStore";
