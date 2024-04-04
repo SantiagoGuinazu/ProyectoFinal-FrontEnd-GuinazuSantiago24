@@ -178,3 +178,14 @@ export const getTickets = async () => {
         return { ok: false };
     }
 };
+
+export const referenceId = async (idCart) => {
+    try {
+        const { data } = await ecommerceApi.post(`/carts/create-preference/${idCart}`);
+        console.log({ data });
+        return { ok: true, idPreference: data.idPreference };
+    } catch (error) {
+        console.log({ error });
+        return { ok: false, msg: error.response.data.msg };
+    }
+};
