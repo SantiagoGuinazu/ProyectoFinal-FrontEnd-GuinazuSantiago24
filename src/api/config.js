@@ -1,8 +1,10 @@
 import axios from 'axios';
+import { getVariablesEnv } from '../helpers/getVariablesEnv';
+
+const { VITE_URL_API } = getVariablesEnv();
 
 const ecommerceApi = axios.create({
-    //baseURL: 'https://ecommerce-santiagoguinazu.onrender.com/api'
-    baseURL: 'http://127.0.0.1:8080/api'
+    baseURL: VITE_URL_API
 });
 
 ecommerceApi.interceptors.request.use(config=>{
