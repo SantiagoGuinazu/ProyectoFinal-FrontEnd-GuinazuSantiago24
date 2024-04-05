@@ -27,6 +27,11 @@ export const MyCartPage = () => {
         await startConfirmarCompra();
         setConfirmCompra(false);
         navigate('/mis-compras');
+        Swal.fire({
+            title: 'Compra Realizada con Exito',
+            html: 'Gracias por su compra',
+            icon: 'success',
+        });
     };
 
     const idReference = async () => {

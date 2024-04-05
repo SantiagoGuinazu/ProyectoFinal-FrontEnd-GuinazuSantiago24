@@ -13,6 +13,7 @@ import { AddProductPage } from "../pages/AddProductPage";
 import { EditProductPage } from '../pages/EditProductPage';
 import { ResetPasswordPage } from '../pages/ResetPasswordPage';
 import { ResetPasswordEmailPage } from '../pages/ResetPasswordEmailPage';
+import { ChatComponent } from "../components/ChatComponent";
 
 export const AppRouter = () => {
     const { status, startCheckingLogin, isAdmin } = useAuthStore();
@@ -42,6 +43,7 @@ export const AppRouter = () => {
                         <>
                             <Route path="/mis-compras" element={<MyCompras />} />
                             <Route path="/mi-carrito" element={<MyCartPage />} />
+                            <Route path="/chat" element={<ChatComponent />} />
                             {
                                 isAdmin && 
                                 <>
