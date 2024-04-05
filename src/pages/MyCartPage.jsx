@@ -3,11 +3,12 @@ import { CardItemCart } from "../components/CardItemCart";
 import { NavBar } from "../components/NavBar";
 import { useCartStore } from "../hooks/useCartStore";
 import { Button, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 import { referenceId } from "../api/requestApi";
 import { getVariablesEnv } from "../helpers/getVariablesEnv";
+import queryString from 'query-string';
 
 const { VITE_YOUR_PUBLIC_KEY_MERCADO_PAGO } = getVariablesEnv();
 initMercadoPago(VITE_YOUR_PUBLIC_KEY_MERCADO_PAGO, { locale: 'es-AR' });
@@ -16,7 +17,17 @@ export const MyCartPage = () => {
 
     const { cart, startConfirmarCompra } = useCartStore();
     const [confirmCompra, setConfirmCompra] = useState(false);
-    const [preferenceId, setPreferenceId] = useState(null)
+    const [preferenceId, setPreferenceId] = useState(null);
+    const { status } = queryString.parse(location.search);
+    const navigate = useNavigate();
+    
+    const confirmarCompra = async () => {
+        console.log('confirmar compra');
+        setConfirmCompra(true);
+        await startConfirmarCompra();
+        setConfirmCompra(false);
+        navigate('/mis-compras');
+    };
 
     const idReference = async () => {
         try {
@@ -40,17 +51,6 @@ export const MyCartPage = () => {
     const total = cart?.products?.reduce((accumulator, product) => {
         return accumulator + (product.quantity * product.id.price);
     }, 0);
-
-    const confirmarCompra = async () => {
-        console.log('confirmar compra');
-        setConfirmCompra(true);
-        await startConfirmarCompra();
-        setConfirmCompra(false);
-        Swal.fire({
-            title: 'Compra exitosa',
-            icon: 'success',
-        });
-    };
 
 
     if (confirmCompra) {
@@ -108,6 +108,10 @@ export const MyCartPage = () => {
                         </Link>
                     </div>
                 </>
+            }
+
+            {
+                (cart && status == 'approved') && confirmarCompra()
             }
         </>
     );
