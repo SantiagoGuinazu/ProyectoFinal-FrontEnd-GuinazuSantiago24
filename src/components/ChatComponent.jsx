@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import io from 'socket.io-client';
-import { Navbar } from './NavBar';
 
 const socket = io('/');
 
@@ -26,7 +25,6 @@ export const ChatComponent = () => {
 
     return (
         <>  
-            <NavBar />
             <div className='h-screen bg-zinc-800 text-white flex items-center justify-center'>
                 <form onSubmit={handleSubmit} className='bg-zinc-900 p-10'>
                     <h1 className='text-2xl font-bold my-2'>Chat React</h1>
