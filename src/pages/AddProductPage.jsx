@@ -5,8 +5,8 @@ import * as Yup from "yup";
 import { useProductStore } from "../hooks/useProductStore";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { LoadingComponent } from '../components/LoadingComponent';
-import Swal from 'sweetalert2';
+import { LoadingComponent } from "../components/LoadingComponent";
+import Swal from "sweetalert2";
 
 export const AddProductPage = () => {
     
@@ -15,13 +15,13 @@ export const AddProductPage = () => {
     const [showMessage, setShowMessage] = useState(false);
     
     const initialValues = {
-        title: '',
-        description: '',
-        code: '',
-        price: '',
-        stock: '',
-        category: '',
-        file: '',
+        title: "",
+        description: "",
+        code: "",
+        price: "",
+        stock: "",
+        category: "",
+        file: "",
     };
 
     const validationSchema = Yup.object({
@@ -38,7 +38,7 @@ export const AddProductPage = () => {
 
     const { title, description, code, price, stock, category, file } = values;
 
-    const disabled = (title != '' && description != '' && code != '' && price != '' && stock != '' && category != '' && file != '') ? false : true;
+    const disabled = (title != "" && description != "" && code != "" && price != "" && stock != "" && category != "" && file != "") ? false : true;
 
     const onSubmitForm = async () => {
         try{
@@ -47,13 +47,13 @@ export const AddProductPage = () => {
             if (isEmpty) return;
             
             const formData = new FormData();
-            formData.append('title', title);
-            formData.append('description', description);
-            formData.append('code', code);
-            formData.append('price', price);
-            formData.append('stock', stock);
-            formData.append('category', category);
-            formData.append('file', file);
+            formData.append("title", title);
+            formData.append("description", description);
+            formData.append("code", code);
+            formData.append("price", price);
+            formData.append("stock", stock);
+            formData.append("category", category);
+            formData.append("file", file);
 
             const success = await startCreateProduct(formData);
             console.log({success});
@@ -62,10 +62,10 @@ export const AddProductPage = () => {
                 setLoading(false);
                 setShowMessage(true);
                 Swal.fire({
-                    title: 'Producto agregado con exito',
-                    icon: 'success',
+                    title: "Producto agregado con exito",
+                    icon: "success",
                 });
-                navigate('/admin-product');
+                navigate("/admin-product");
             } else {
                 setLoading(false);
                 setShowMessage(false);
@@ -97,7 +97,7 @@ export const AddProductPage = () => {
                 spacing={0}
                 direction="column"
                 alignItems="center"
-                //justifyContent='center'
+                //justifyContent="center"
                 sx={{ minHeight: "100vh", backgroundColor: "lightblue" }}
             >
                 <Grid

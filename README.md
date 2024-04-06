@@ -21,20 +21,20 @@ git clone https://github.com/SantiagoGuinazu/ProyectoFinal-FrontEnd-GuinazuSanti
 
 2. Install dependencies
 ``` bash
-npm install
+npm install //
+yarn add
 ```
 
 3. Start the dev server
 ``` bash
-npm run dev "./src/app.js"
-npm run nodemon "./src/app.js"
+yarn dev
 ```
-
-## Frontend ecommerce 
-* Url del proyecto 👉 [URL](https://guinazusantiago-ecommerce-front.netlify.app).
 
 ## Backend ecommerce 
 * Url del proyecto 👉 [URL](https://ecommerce-santiagoguinazu.onrender.com).
+
+## Frontend ecommerce 
+* Url del proyecto 👉 [URL](https://guinazusantiago-ecommerce-front.netlify.app).
 
 ## Construido con 🛠️
 Este Proyecto fue construido utilizando:

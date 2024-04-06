@@ -1,12 +1,12 @@
-import ecommerceApi from './config';
+import ecommerceApi from "./config";
 
 export const loginUser = async (email, password) => {
     try {
-        const { data } = await ecommerceApi.post('/auth/login', { email, password });
+        const { data } = await ecommerceApi.post("/auth/login", { email, password });
         console.log(data)
         const { token, usuario } = data;
         const { _id, name, lastName, rol, cart_id } = usuario;
-        localStorage.setItem('token', token);
+        localStorage.setItem("token", token);
         return { ok: true, _id, name, lastName, rol, cart_id }
     } catch (error) {
         console.log(error)
@@ -16,10 +16,10 @@ export const loginUser = async (email, password) => {
 
 export const registerUser = async (email, password, name, lastName) => {
     try {
-        const { data } = await ecommerceApi.post('/auth/register', { email, password, name, lastName });
+        const { data } = await ecommerceApi.post("/auth/register", { email, password, name, lastName });
         const { token, usuario } = data;
         const { _id, rol, cart_id } = usuario;
-        localStorage.setItem('token', token);
+        localStorage.setItem("token", token);
         return { ok: true, _id, name, lastName, rol, cart_id }
     } catch (error) {
         console.log(error)
@@ -29,10 +29,10 @@ export const registerUser = async (email, password, name, lastName) => {
 
 export const validarToken = async () => {
     try {
-        const { data } = await ecommerceApi.get('/auth/renew');
+        const { data } = await ecommerceApi.get("/auth/renew");
         const { token, usuario } = data;
         const { _id, name, lastName, rol, cart_id } = usuario;
-        localStorage.setItem('token', token);
+        localStorage.setItem("token", token);
         return { ok: true, _id, name, lastName, rol, cart_id }
     } catch (error) {
         console.log(error)
@@ -42,7 +42,7 @@ export const validarToken = async () => {
 
 export const sendEmailResetPass = async (email) => {
     try {
-        const { data } = await ecommerceApi.post('/auth/cambiar-password', { email });
+        const { data } = await ecommerceApi.post("/auth/cambiar-password", { email });
         return { ok: true }
     } catch (error) {
         console.log(error);
@@ -52,7 +52,7 @@ export const sendEmailResetPass = async (email) => {
 
 export const resetPass = async (password, token) => {
     try {
-        const { data } = await ecommerceApi.post('/auth/reset-password', { password, token });
+        const { data } = await ecommerceApi.post("/auth/reset-password", { password, token });
         return { ok: true }
     } catch (error) {
         console.log(error);
@@ -89,7 +89,7 @@ export const getProductbyId = async (id) => {
 
 export const createProduct = async (producto) => {
     try {
-        const { data } = await ecommerceApi.post('/products', producto);
+        const { data } = await ecommerceApi.post("/products", producto);
         return { ok: true, producto: data.producto };
     } catch (error) {
         console.log(error);
@@ -171,7 +171,7 @@ export const confirmarCompra = async (idCart) => {
 
 export const getTickets = async () => {
     try {
-        const { data } = await ecommerceApi.get('/tickets');
+        const { data } = await ecommerceApi.get("/tickets");
         return { ok: true, tickets: data.tickets };
     } catch (error) {
         console.log(error);

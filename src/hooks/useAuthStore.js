@@ -30,9 +30,9 @@ export const useAuthStore = () => {
         };
 
         return Swal.fire({
-            title: 'Uhh ocurrio un error',
+            title: "Uhh ocurrio un error",
             html: resp.msg,
-            icon: 'error',
+            icon: "error",
         });
     };
 
@@ -40,16 +40,16 @@ export const useAuthStore = () => {
         const resp = await sendEmailResetPass(email);
         if (resp.ok) {
             return Swal.fire({
-                title: 'Email enviado',
-                html: 'Se te envio un email a tu casilla de correo para continuar el reset de tu contraseña',
-                icon: 'success',
+                title: "Email enviado",
+                html: "Se te envio un email a tu casilla de correo para continuar el reset de tu contraseña",
+                icon: "success",
             });
         }
 
         return Swal.fire({
-            title: 'Uhh ocurrio un error',
+            title: "Uhh ocurrio un error",
             html: resp.msg,
-            icon: 'error',
+            icon: "error",
         });
     };
 
@@ -57,17 +57,17 @@ export const useAuthStore = () => {
         const resp = await resetPass(password, token);
         if (resp.ok) {
             Swal.fire({
-                title: 'Contraseña reseteada',
-                html: 'Tu contraseña fue cambiada correctamente',
-                icon: 'success',
+                title: "Contraseña reseteada",
+                html: "Tu contraseña fue cambiada correctamente",
+                icon: "success",
             });
             return true;
         }
 
         Swal.fire({
-            title: 'Uhh ocurrio un error',
+            title: "Uhh ocurrio un error",
             html: resp.msg,
-            icon: 'error',
+            icon: "error",
         });
 
         return false;
@@ -81,9 +81,9 @@ export const useAuthStore = () => {
         }
 
         return Swal.fire({
-            title: 'Uhh ocurrio un error',
+            title: "Uhh ocurrio un error",
             html: resp.msg,
-            icon: 'error',
+            icon: "error",
         });
     };
 

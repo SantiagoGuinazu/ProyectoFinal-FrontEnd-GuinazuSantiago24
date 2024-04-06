@@ -1,7 +1,7 @@
-import { Add, Remove, Delete } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
-import { useState } from 'react';
-import { useCartStore } from '../hooks/useCartStore';
+import { Add, Remove, Delete } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
+import { useState } from "react";
+import { useCartStore } from "../hooks/useCartStore";
 
 export const CardItemCart = (product) => {
     const { _id, title, price, stock, thumbnails } = product.id;
@@ -30,7 +30,7 @@ export const CardItemCart = (product) => {
         <div className="container">
             <div className="d-flex align-items-center justify-content-center border-bottom py-2">
                 <div className="d-flex align-items-center">
-                    <img src={thumbnails} alt={title} className="me-3" style={{ maxWidth: '100px' }} />
+                    <img src={thumbnails} alt={title} className="me-3" style={{ maxWidth: "100px" }} />
                     <div>
                         <h6 className="mb-0">{title}</h6>
                         <p className="mb-0">Precio: ${price}</p>

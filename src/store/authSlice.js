@@ -1,7 +1,7 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice} from "@reduxjs/toolkit";
 
 export const authSlice = createSlice({
-    name: 'auth',
+    name: "auth",
     initialState: {
         _id: null,
         name: null,
@@ -9,22 +9,22 @@ export const authSlice = createSlice({
         email: null,
         rol: null,
         cart_id: null,
-        status: 'checking',
+        status: "checking",
         isAdmin: false,
     },
     reducers: {
         onLogin: (state, { payload }) => {
-            state.status = 'authenticated';
+            state.status = "authenticated";
             state._id = payload._id;
             state.name = payload.name;
             state.lastName = payload.lastName;
             state.email = payload.email;
             state.rol = payload.rol;
             state.cart_id = payload.cart_id;
-            state.isAdmin = payload.rol === 'admin' ? true : false;
+            state.isAdmin = payload.rol === "admin" ? true : false;
         },
         onLogout: (state) => {
-            state.status = 'not-authenticated';
+            state.status = "not-authenticated";
             state._id = null;
             state.name = null;
             state.lastName = null;
@@ -34,7 +34,7 @@ export const authSlice = createSlice({
             state.isAdmin = false;
         },
         onCheckingLogin: (state) => {
-            state.status = 'checking';
+            state.status = "checking";
             state._id = null;
             state.name = null;
             state.lastName = null;

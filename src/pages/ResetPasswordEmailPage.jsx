@@ -1,20 +1,20 @@
-import { Button, Grid, TextField, Typography } from '@mui/material';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { useAuthStore } from '../hooks/useAuthStore';
-import { useNavigate } from 'react-router-dom';
-import { NavBarCito } from '../components/Navbarcito';
+import { Button, Grid, TextField, Typography } from "@mui/material";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { useAuthStore } from "../hooks/useAuthStore";
+import { useNavigate } from "react-router-dom";
+import { NavBarCito } from "../components/Navbarcito";
 
 export const ResetPasswordEmailPage = () => {
 
     const navigate = useNavigate();
 
     const initialValues = {
-        email: ''
+        email: ""
     };
 
     const validationSchema = Yup.object({
-        email: Yup.string().required('El email es obligatorio').email('Email invalido'),
+        email: Yup.string().required("El email es obligatorio").email("Email invalido"),
     });
 
     const { values, handleChange, errors, handleSubmit } = useFormik({
@@ -22,7 +22,7 @@ export const ResetPasswordEmailPage = () => {
         validationSchema,
         onSubmit: (values) => {
             startSendEmailResetPass(values.email);
-            navigate('/');
+            navigate("/");
         }
     });
 
@@ -33,24 +33,24 @@ export const ResetPasswordEmailPage = () => {
         <Grid
             container
             spacing={0}
-            direction='column'
-            alignItems='center'
-            justifyContent='center'
-            sx={{ minHeight: '100vh', backgroundColor: '#262254' }}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            sx={{ minHeight: "100vh", backgroundColor: "#262254" }}
         >
             
-            <Grid item sx={{ width: 450, backgroundColor: 'white', borderRadius: 2, padding: 3 }}>
+            <Grid item sx={{ width: 450, backgroundColor: "white", borderRadius: 2, padding: 3 }}>
                 <NavBarCito/>
-                <Typography variant='h5'>Ingrese el email</Typography>
+                <Typography variant="h5">Ingrese el email</Typography>
                 <Grid container>
                     <Grid item mt={2} xs={12}>
                         <TextField
-                            name='email'
+                            name="email"
                             value={email}
-                            type='email'
-                            label='Email'
-                            variant='outlined'
-                            size='small'
+                            type="email"
+                            label="Email"
+                            variant="outlined"
+                            size="small"
                             fullWidth
                             onChange={handleChange}
                             error={Boolean(errors.email)}

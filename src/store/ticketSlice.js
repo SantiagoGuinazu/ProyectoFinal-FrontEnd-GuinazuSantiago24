@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const ticketSlice = createSlice({
-    name: 'ticket',
+    name: "ticket",
     initialState: {
         tickets: null,
     },

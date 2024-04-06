@@ -1,14 +1,14 @@
 import { Button, Container, Grid, Typography } from "@mui/material";
 import { NavBar } from "../components/NavBar";
 import { useProductStore } from "../hooks/useProductStore";
-import { AddCircleOutline, RemoveCircleOutline, ShoppingCart, DeleteOutline } from '@mui/icons-material';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useCartStore } from '../hooks/useCartStore';
+import { AddCircleOutline, RemoveCircleOutline, ShoppingCart, DeleteOutline } from "@mui/icons-material";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useCartStore } from "../hooks/useCartStore";
 
 export const ProductPage = () => {
 
-    const { '*': productId } = useParams();
+    const { "*": productId } = useParams();
     const { product, startGetProductById } = useProductStore();
     const { cart, startAddProductInCart, startRemoveProductInCart } = useCartStore();
     const [quantity, setQuantity] = useState(0);
@@ -45,10 +45,10 @@ export const ProductPage = () => {
 return (
         <>
             <NavBar />
-            <Container maxWidth='md' style={{ marginTop: 30 }}>
+            <Container maxWidth="md" style={{ marginTop: 30 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} md={6}>
-                        <img src={product?.thumbnails} alt={product?.title} style={{ maxWidth: '70%', borderRadius: 8, boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }} />
+                        <img src={product?.thumbnails} alt={product?.title} style={{ maxWidth: "70%", borderRadius: 8, boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)" }} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Grid container spacing={2} direction="column">
@@ -60,7 +60,7 @@ return (
                             </Grid>
 
                             <Grid item>
-                                <Typography variant="body1" sx={{ color: '#3f51b5', cursor: 'pointer' }}>
+                                <Typography variant="body1" sx={{ color: "#3f51b5", cursor: "pointer" }}>
                                     Agregar al carrito
                                 </Typography>
                             </Grid>

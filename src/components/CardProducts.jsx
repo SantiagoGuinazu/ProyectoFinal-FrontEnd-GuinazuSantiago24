@@ -1,7 +1,7 @@
-import { Grid, Box, Button } from '@mui/material';
-import { useProductStore } from '../hooks/useProductStore';
-import { CardItem } from './CardItem';
-import { useEffect, useState } from 'react';
+import { Grid, Box, Button } from "@mui/material";
+import { useProductStore } from "../hooks/useProductStore";
+import { CardItem } from "./CardItem";
+import { useEffect, useState } from "react";
 
 export const CardProducts = () => {
 
@@ -19,7 +19,7 @@ export const CardProducts = () => {
 
     return (
         <>
-            <Grid container spacing={3} alignItems='center' justifyContent='center' sx={{ paddingX: 20, paddingTop: 3 }}>
+            <Grid container spacing={3} alignItems="center" justifyContent="center" sx={{ paddingX: 20, paddingTop: 3 }}>
                 {
                     products?.map(producto => (
                         <Grid key={producto._id} item xs={12} sm={6} md={4}>
@@ -28,7 +28,7 @@ export const CardProducts = () => {
                     ))
                 }
             </Grid>
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4, mb:4 }}>
+            <Box sx={{ display: "flex", justifyContent: "center", mt: 4, mb:4 }}>
                 {pagination && (
                     <Box>
                         {Array.from({ length: pagination.totalPages }).map((_, index) => (
@@ -36,12 +36,12 @@ export const CardProducts = () => {
                                 key={index + 1}
                                 onClick={() => goToPage(index + 1)}
                                 sx={{
-                                    fontWeight: 'bold',
-                                    margin: '0 5px', 
-                                    backgroundColor: 'rgba(0, 0, 0, 0.1)', 
-                                    color: 'black', 
-                                    '&:hover': {
-                                        backgroundColor: 'rgba(0, 0, 0, 0.2)', 
+                                    fontWeight: "bold",
+                                    margin: "0 5px", 
+                                    backgroundColor: "rgba(0, 0, 0, 0.1)", 
+                                    color: "black", 
+                                    "&:hover": {
+                                        backgroundColor: "rgba(0, 0, 0, 0.2)", 
                                     },
                                 }}
                             >
@@ -53,4 +53,4 @@ export const CardProducts = () => {
             </Box>
         </>
     );
-}
+};

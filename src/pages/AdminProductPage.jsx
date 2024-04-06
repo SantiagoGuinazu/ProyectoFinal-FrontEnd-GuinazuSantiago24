@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { Box, Fab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Button, Typography } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useProductStore } from '../hooks/useProductStore';
-import { NavBar } from '../components/NavBar';
+import { useState } from "react";
+import { Box, Fab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Button, Typography } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useProductStore } from "../hooks/useProductStore";
+import { NavBar } from "../components/NavBar";
 
 export const AdminProductPage = () => {
     const navigate = useNavigate();
@@ -22,10 +22,10 @@ export const AdminProductPage = () => {
         startGetProducts(currentPage).then(() => setLoading(false));
     }, [currentPage]);
 
-    const addProduct = () => navigate('/admin-product/add');
+    const addProduct = () => navigate("/admin-product/add");
 
     const deleteProduct = (productId) => {
-        if (window.confirm('¿Estás seguro de que deseas eliminar este producto?')) {
+        if (window.confirm("¿Estás seguro de que deseas eliminar este producto?")) {
             startDeleteProduct(productId);
         }
     };
@@ -46,8 +46,8 @@ export const AdminProductPage = () => {
             {loading ? (
                 <Typography variant="h4">Loading...</Typography>
             ) : (
-                <Box sx={{ margin: '30px' }}>
-                    <Box sx={{ '& > :not(style)': { m: 1 }, position: 'fixed', bottom: 50, right: 50 }}>
+                <Box sx={{ margin: "30px" }}>
+                    <Box sx={{ "& > :not(style)": { m: 1 }, position: "fixed", bottom: 50, right: 50 }}>
                         <Fab color="primary" aria-label="add" onClick={addProduct}>
                             <AddIcon />
                         </Fab>
@@ -56,13 +56,13 @@ export const AdminProductPage = () => {
                         <Table>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Título</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Descripción</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Código</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Precio</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Stock</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Categoría</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold' }}>Acciones</TableCell>
+                                    <TableCell sx={{ fontWeight: "bold" }}>Título</TableCell>
+                                    <TableCell sx={{ fontWeight: "bold" }}>Descripción</TableCell>
+                                    <TableCell sx={{ fontWeight: "bold" }}>Código</TableCell>
+                                    <TableCell sx={{ fontWeight: "bold" }}>Precio</TableCell>
+                                    <TableCell sx={{ fontWeight: "bold" }}>Stock</TableCell>
+                                    <TableCell sx={{ fontWeight: "bold" }}>Categoría</TableCell>
+                                    <TableCell sx={{ fontWeight: "bold" }}>Acciones</TableCell>
                                 </TableRow>
                             </TableHead>
 
@@ -89,7 +89,7 @@ export const AdminProductPage = () => {
                         </Table>
                     </TableContainer>
                     
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+                    <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
                         {pagination && (
                             <Box>
                                 {Array.from({ length: pagination.totalPages }).map((_, index) => (
@@ -97,12 +97,12 @@ export const AdminProductPage = () => {
                                         key={index + 1}
                                         onClick={() => goToPage(index + 1)}
                                         sx={{
-                                            fontWeight: 'bold',
-                                            margin: '0 5px',
-                                            backgroundColor: 'rgba(0, 0, 0, 0.1)', 
-                                            color: 'black', 
-                                            '&:hover': {
-                                                backgroundColor: 'rgba(0, 0, 0, 0.2)', 
+                                            fontWeight: "bold",
+                                            margin: "0 5px",
+                                            backgroundColor: "rgba(0, 0, 0, 0.1)", 
+                                            color: "black", 
+                                            "&:hover": {
+                                                backgroundColor: "rgba(0, 0, 0, 0.2)", 
                                             },
                                         }}
                                     >

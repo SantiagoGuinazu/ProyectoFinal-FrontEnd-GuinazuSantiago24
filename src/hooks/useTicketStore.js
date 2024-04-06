@@ -15,9 +15,9 @@ export const useTicketStore = () => {
         };
 
         return Swal.fire({
-            title: 'Uhh ocurrio un error al obtener los productos',
-            html: 'Por favor intenta mas tarte',
-            icon: 'error',
+            title: "Uhh ocurrio un error al obtener los productos",
+            html: "Por favor intenta mas tarte",
+            icon: "error",
         });
     };
 
