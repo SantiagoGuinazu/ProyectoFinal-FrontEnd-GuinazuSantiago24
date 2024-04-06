@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/socket.io": {
-        target: "https://ecommerce-santiagoguinazu.onrender.com/",
+        target: "http://localhost:8080",
         ws: true
       }
     }
