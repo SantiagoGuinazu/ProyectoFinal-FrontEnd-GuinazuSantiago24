@@ -50,6 +50,10 @@ export const NavBar = () => {
                     to={`${status === 'not-authenticated' ? '/auth/login' : '/mis-compras'}`}
                     className='navbar-brand'
                     style={{ marginRight: '15px' }}>Mis compras</NavLink>
+                <NavLink
+                    to={`${status === 'not-authenticated' ? '/auth/login' : '/chat'}`}
+                    className='navbar-brand'
+                    style={{ marginRight: '15px' }}>Chat</NavLink>
                 {
                     status === 'authenticated'
                         ?

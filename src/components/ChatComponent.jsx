@@ -1,16 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
+import { NavBar } from './NavBar';
 
-const socket = io('/');
+const socket = io('/')
 
 export const ChatComponent = () => {
-    const [message, setMessage] = useState('');
 
+    const [message, setMessage] = useState('');
+    const [messages, setMessages] = useState([]);
+    
     useEffect(() => {
-        socket.on("mensaje", data => {
-            console.log({ data });
-        })
+        socket.on('mensaje', receiveMessage);
+        return () =>{
+            socket.off('mensaje', receiveMessage)
+        }
     }, []);
+
+    const receiveMessage = message => 
+        setMessages((state) => [...state, message])
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -18,16 +25,17 @@ export const ChatComponent = () => {
             body: message,
             from: 'Me',
         };
-        // setMessages(state => [newMessage, ...state]);
+        setMessages(state => [newMessage, ...state]);
         setMessage('');
         socket.emit('mensaje', newMessage.body);
     };
 
     return (
         <>  
-            <div className='h-screen bg-zinc-800 text-white flex items-center justify-center'>
-                <form onSubmit={handleSubmit} className='bg-zinc-900 p-10'>
-                    <h1 className='text-2xl font-bold my-2'>Chat React</h1>
+            <NavBar />
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <h1>Chat React</h1>
                     <input
                         name='message'
                         type='text'
@@ -38,19 +46,19 @@ export const ChatComponent = () => {
                         autoFocus
                     />
 
-                    {/* <ul className='h-80 overflow-y-auto'>
-                    {messages.map((message, index) => (
-                        <li
-                            key={index}
-                            className={`my-2 p-2 table text-sm rounded-md ${message.from === 'Me' ? 'bg-sky-700 ml-auto' : 'bg-black'
-                                }`}
-                        >
-                            <b>{message.from}</b>:{message.body}
-                        </li>
-                    ))}
-                </ul> */}
+                    <ul>
+                        {messages.map((message, index) => (
+                            <li
+                                key={index}
+                                className={` ${message.from === 'Me' ? 'bg-sky-700 ml-auto' : 'bg-lightblue'
+                                    }`}
+                            >
+                                <b>{message.from}</b>: {message.body}
+                            </li>
+                        ))}
+                    </ul>
                 </form>
             </div>
         </>
-    );
+    )
 };
